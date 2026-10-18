@@ -1,8 +1,5 @@
 package org.example.task2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Task2Impl implements Task2 {
     @Override
     public long sumFromOneTo(int n) {
