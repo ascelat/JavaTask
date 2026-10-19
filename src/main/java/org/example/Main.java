@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.tasks1.Task1;
 import org.example.tasks1.TaskDev1;
+import org.example.task2.Task2;
+import org.example.task2.TaskDev2;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +15,14 @@ public class Main {
         demoCalculate(task);
         demoIsValidTriangle(task);
         demoCalculateFinalPrice(task);
+
+        Task2 task2 = new TaskDev2();
+
+        demoSumFromOneTo(task2);
+        demoFormatLine(task2);
+        demoSumOfDigits(task2);
+        demoIsPalindrome(task2);
+        demoIsPrime(task2);
 
     }
 
@@ -122,5 +132,58 @@ public class Main {
                         age, isStudent, day, e.getMessage());
             }
         }
+        System.out.println();
+    }
+
+    //Task2
+
+    private static void demoSumFromOneTo(Task2 task) {
+        int[] values = {1, 2, 3, 4, 5, 10, 100, 1000, 100_000, Integer.MAX_VALUE};
+        for (int n : values) {
+            System.out.printf("sumFromOneTo(%d) = %d%n", n, task.sumFromOneTo(n));
+        }
+        System.out.println();
+    }
+
+    private static void demoFormatLine(Task2 task) {
+        int[] numbers = {3, 7, 0, -2};
+        for (int n : numbers) {
+            System.out.printf("formatLine(%d):%n", n);
+            task.formatLine(n);
+        }
+        System.out.println();
+    }
+
+    private static void demoSumOfDigits(Task2 task) {
+        int[] values = {0, 1, 5, 9, 10, 99, 567, 123456789, Integer.MAX_VALUE, Integer.MIN_VALUE};
+        for (int v : values) {
+            System.out.printf("sumOfDigits(%d) = %d%n", v, task.sumOfDigits(v));
+        }
+        System.out.println();
+    }
+
+    private static void demoIsPalindrome(Task2 task) {
+        int[] values = {
+                0, 1, 7, 11, 121, 1221, 12321, 1_000_000_001,
+                10, 100, 123, 321, 1002, 123456,
+                Integer.MAX_VALUE, 2_147_474_741
+        };
+        for (int v : values) {
+            System.out.printf("isPalindrome(%d) = %b%n", v, task.isPalindrome(v));
+        }
+        System.out.println();
+    }
+
+    private static void demoIsPrime(Task2 task) {
+        int[] values = {
+                -10, -1, 0, 1, 2, 3, 4, 5, 6, 7, 9, 11, 13, 17, 19, 23, 29,
+                97, 101, 997, 7919, 104_729,
+                1_000_000, 1_000_000_007,
+                Integer.MAX_VALUE
+        };
+        for (int v : values) {
+            System.out.printf("isPrime(%d) = %b%n", v, task.isPrime(v));
+        }
+        System.out.println();
     }
 }
