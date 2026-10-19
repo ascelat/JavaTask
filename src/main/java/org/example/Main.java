@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.task3.Task3Impl;
+import org.example.task3.Task3_1Impl;
+
 import java.util.*;
 
 public class Main {
@@ -50,6 +52,47 @@ public class Main {
         List<String> badNames = Arrays.asList(" аня ", "", null, "боря");
         System.out.println("Было: " + badNames);
         System.out.println("Стало: " + t3.normalizeNames(badNames));
+        System.out.println();
+
+        Task3_1Impl t31 = new Task3_1Impl();
+
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        System.out.println("Вход: " + numbers1);
+        System.out.println("Выход: " + t31.filterAndMultiply(numbers1));
+        System.out.println();
+
+        List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5);
+        System.out.println("Вход: " + numbers2);
+        System.out.println("Выход: " + t31.calculateStats(numbers2));
+        System.out.println();
+
+        List<String> words3 = Arrays.asList("a", "bb", "cc", "ddd", "ee");
+        System.out.println("Вход: " + words3);
+        System.out.println("Выход: " + t31.groupByLength(words3));
+        System.out.println();
+
+        List<String> words4 = Arrays.asList("apple", "cat", "banana", "dog", "kiwi");
+        System.out.println("Вход: " + words4 + ", N = 3");
+        System.out.println("Выход: " + t31.topNLongest(words4, 3));
+        System.out.println();
+
+        List<List<Integer>> nested = Arrays.asList(
+                Arrays.asList(3, 1, 2),
+                Arrays.asList(2, 4),
+                Arrays.asList(5, 1)
+        );
+        System.out.println("Вход: " + nested);
+        System.out.println("Выход: " + t31.flattenAndSort(nested));
+        System.out.println();
+
+        List<Integer> numbers6 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        System.out.println("Вход: " + numbers6);
+        System.out.println("Выход: " + t31.analyzeEvenOdd(numbers6));
+        System.out.println();
+
+        List<String> names7 = Arrays.asList(" аня ", "", null, "боря");
+        System.out.println("Вход: " + names7);
+        System.out.println("Выход: " + t31.normalizeNamesStream(names7));
         System.out.println();
     }
 }
