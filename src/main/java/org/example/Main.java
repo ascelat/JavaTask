@@ -6,12 +6,14 @@ import org.example.task2.Task2;
 import org.example.task2.TaskDev2;
 import org.example.task3.Task3;
 import org.example.task3.TaskDev3;
+import org.example.task3.Task3_1;
+import org.example.task3.TaskDev3_1;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        /*Task1 task = new TaskDev1();
+        Task1 task = new TaskDev1();
 
         demoIsEven(task);
         demoFindMax(task);
@@ -26,7 +28,7 @@ public class Main {
         demoFormatLine(task2);
         demoSumOfDigits(task2);
         demoIsPalindrome(task2);
-        demoIsPrime(task2);*/
+        demoIsPrime(task2);
 
         Task3 task3 = new TaskDev3();
 
@@ -38,6 +40,16 @@ public class Main {
         demoCompareSets(task3);
         demoSumOfLengths(task3);
         demoNormalizeNames(task3);
+
+        Task3_1 task3_1 = new TaskDev3_1();
+
+        demoFilterAndMultiply(task3_1);
+        demoCalculateStats(task3_1);
+        demoGroupByLength(task3_1);
+        demoTopNLongest(task3_1);
+        demoFlattenAndSort(task3_1);
+        demoAnalyzeEvenOdd(task3_1);
+        demoNormalizeNamesStream(task3_1);
 
     }
 
@@ -325,6 +337,121 @@ public class Main {
         );
         for (List<String> c : cases) {
             System.out.printf("normalizeNames(%s) = %s%n", c, task.normalizeNames(c));
+        }
+        System.out.println();
+    }
+
+    //Task3_1
+
+    private static void demoFilterAndMultiply(Task3_1 task) {
+        List<List<Integer>> cases = List.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                List.of(),
+                List.of(1, 3, 5, 7),
+                List.of(2, 4, 6, 8),
+                List.of(-4, -3, -2, -1, 0, 1, 2),
+                List.of(0)
+        );
+        for (List<Integer> c : cases) {
+            System.out.printf("filterAndMultiply(%s) = %s%n",
+                    c, task.filterAndMultiply(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoCalculateStats(Task3_1 task) {
+        List<List<Integer>> cases = List.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                List.of(5),
+                List.of(10, 20, 30),
+                List.of(-5, -10, 5, 10),
+                List.of(100, 200, 300, 400)
+        );
+        for (List<Integer> c : cases) {
+            System.out.printf("calculateStats(%s) = %s%n",
+                    c, task.calculateStats(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoGroupByLength(Task3_1 task) {
+        List<List<String>> cases = List.of(
+                List.of("a", "bb", "cc", "ddd", "ee"),
+                List.of(),
+                List.of("", "a", "bb", "ccc"),
+                List.of("xx", "yy", "zz"),
+                List.of("only")
+        );
+        for (List<String> c : cases) {
+            System.out.printf("groupByLength(%s) = %s%n",
+                    c, task.groupByLength(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoTopNLongest(Task3_1 task) {
+        List<List<String>> wordsList = List.of(
+                List.of("apple", "cat", "banana", "dog", "kiwi"),
+                List.of("apple", "cat", "banana", "dog", "kiwi"),
+                List.of("apple", "cat", "banana", "dog", "kiwi"),
+                List.of("bb", "aa", "cc"),
+                List.of("z", "y", "x", "w"),
+                List.of("single")
+        );
+        int[] ns = {3, 5, 1, 2, 3, 5};
+
+        for (int i = 0; i < wordsList.size(); i++) {
+            System.out.printf("topNLongest(%s, %d) = %s%n",
+                    wordsList.get(i), ns[i],
+                    task.topNLongest(wordsList.get(i), ns[i]));
+        }
+        System.out.println();
+    }
+
+    private static void demoFlattenAndSort(Task3_1 task) {
+        List<List<List<Integer>>> cases = List.of(
+                List.of(List.of(3, 1, 2), List.of(2, 4), List.of(5, 1)),
+                List.of(),
+                List.of(List.of(), List.of()),
+                List.of(List.of(1, 1, 1), List.of(1, 1)),
+                List.of(List.of(5, 4, 3), List.of(2, 1)),
+                List.of(List.of(-1, 0, 1), List.of(0, -1))
+        );
+        for (List<List<Integer>> c : cases) {
+            System.out.printf("flattenAndSort(%s) = %s%n",
+                    c, task.flattenAndSort(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoAnalyzeEvenOdd(Task3_1 task) {
+        List<List<Integer>> cases = List.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                List.of(2, 4, 6),
+                List.of(1, 3, 5),
+                List.of(1),
+                List.of(2),
+                List.of(-4, -3, -2, -1, 0)
+        );
+        for (List<Integer> c : cases) {
+            System.out.printf("analyzeEvenOdd(%s) = %s%n",
+                    c, task.analyzeEvenOdd(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoNormalizeNamesStream(Task3_1 task) {
+        List<List<String>> cases = List.of(
+                Arrays.asList(" аня ", "", null, "боря"),
+                Arrays.asList("hello", "world"),
+                Arrays.asList("   ", "  X  "),
+                Collections.singletonList(null),
+                List.of(),
+                Arrays.asList("JAVA", " java ", "JavA")
+        );
+        for (List<String> c : cases) {
+            System.out.printf("normalizeNamesStream(%s) = %s%n",
+                    c, task.normalizeNamesStream(c));
         }
         System.out.println();
     }
