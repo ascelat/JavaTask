@@ -4,10 +4,14 @@ import org.example.tasks1.Task1;
 import org.example.tasks1.TaskDev1;
 import org.example.task2.Task2;
 import org.example.task2.TaskDev2;
+import org.example.task3.Task3;
+import org.example.task3.TaskDev3;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Task1 task = new TaskDev1();
+        /*Task1 task = new TaskDev1();
 
         demoIsEven(task);
         demoFindMax(task);
@@ -22,7 +26,18 @@ public class Main {
         demoFormatLine(task2);
         demoSumOfDigits(task2);
         demoIsPalindrome(task2);
-        demoIsPrime(task2);
+        demoIsPrime(task2);*/
+
+        Task3 task3 = new TaskDev3();
+
+        demoRemoveDuplicates(task3);
+        demoFindIntersection(task3);
+        demoCountWords(task3);
+        demoGroupByGrade(task3);
+        demoFindMostFrequent(task3);
+        demoCompareSets(task3);
+        demoSumOfLengths(task3);
+        demoNormalizeNames(task3);
 
     }
 
@@ -183,6 +198,133 @@ public class Main {
         };
         for (int v : values) {
             System.out.printf("isPrime(%d) = %b%n", v, task.isPrime(v));
+        }
+        System.out.println();
+    }
+
+    //Task3
+
+    private static void demoRemoveDuplicates(Task3 task) {
+        List<List<Integer>> cases = List.of(
+                List.of(1, 2, 2, 3, 1, 4, 3),
+                List.of(),
+                List.of(5, 5, 5, 5),
+                List.of(1, 2, 3, 4, 5),
+                List.of(3, 1, 3, 2, 1, 3)
+        );
+        for (List<Integer> c : cases) {
+            System.out.printf("removeDuplicates(%s) = %s%n", c, task.removeDuplicates(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoFindIntersection(Task3 task) {
+        List<List<Integer>> firsts = List.of(
+                List.of(1, 2, 3, 4),
+                List.of(1, 1, 2, 2),
+                List.of(),
+                List.of(5)
+        );
+        List<List<Integer>> seconds = List.of(
+                List.of(3, 4, 5, 6),
+                List.of(2, 2, 3, 3),
+                List.of(1, 2),
+                List.of(5, 6)
+        );
+        for (int i = 0; i < firsts.size(); i++) {
+            List<Integer> f = firsts.get(i);
+            List<Integer> s = seconds.get(i);
+            System.out.printf("findIntersection(%s, %s) = %s%n", f, s, task.findIntersection(f, s));
+        }
+        System.out.println();
+    }
+
+    private static void demoCountWords(Task3 task) {
+        List<List<String>> cases = List.of(
+                Arrays.asList("java", "python", "java", "c++", "java"),
+                Arrays.asList("a", "a", "b", "b", "b", "c"),
+                List.of(),
+                List.of("only"),
+                Arrays.asList("java", null, "java", null, "python")
+        );
+        for (List<String> c : cases) {
+            System.out.printf("countWords(%s) = %s%n", c, task.countWords(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoGroupByGrade(Task3 task) {
+        Map<String, Integer> students = new LinkedHashMap<>();
+        students.put("Аня", 5);
+        students.put("Боря", 4);
+        students.put("Вера", 5);
+        students.put("Гена", 3);
+        students.put("Дима", 4);
+
+        System.out.printf("groupByGrade(%s) = %s%n", students, task.groupByGrade(students));
+        System.out.println();
+    }
+
+    private static void demoFindMostFrequent(Task3 task) {
+        List<List<Integer>> cases = List.of(
+                List.of(3, 1, 3, 2, 1, 3),
+                List.of(5, 5, 2, 2, 3),
+                List.of(1),
+                List.of(7, 7),
+                List.of(1, 2, 3, 4, 5),
+                List.of(2, 2, 1, 1, 3, 3)
+        );
+        for (List<Integer> c : cases) {
+            System.out.printf("findMostFrequent(%s) = %d%n", c, task.findMostFrequent(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoCompareSets(Task3 task) {
+        List<Set<String>> firsts = List.of(
+                Set.of("a", "b", "c", "d"),
+                Set.of("a", "b"),
+                Set.of(),
+                Set.of("x", "y")
+        );
+        List<Set<String>> seconds = List.of(
+                Set.of("c", "d", "e", "f"),
+                Set.of("a", "b", "c", "d"),
+                Set.of("a", "b"),
+                Set.of("z")
+        );
+        for (int i = 0; i < firsts.size(); i++) {
+            Set<String> f = firsts.get(i);
+            Set<String> s = seconds.get(i);
+            System.out.printf("compareSets(%s, %s) = %s%n", f, s, task.compareSets(f, s));
+        }
+        System.out.println();
+    }
+
+    private static void demoSumOfLengths(Task3 task) {
+        List<List<String>> cases = List.of(
+                Arrays.asList("java", "is", "cool"),
+                List.of(),
+                Arrays.asList("", "a", "bb", "ccc"),
+                Arrays.asList("java", null, "is"),
+                Arrays.asList(null, null)
+        );
+        for (List<String> c : cases) {
+            System.out.printf("sumOfLengths(%s) = %d%n", c, task.sumOfLengths(c));
+        }
+        System.out.println();
+    }
+
+    private static void demoNormalizeNames(Task3 task) {
+        List<List<String>> cases = List.of(
+                Arrays.asList(" аня ", "", null, "боря"),
+                Arrays.asList("hello", "world"),
+                Arrays.asList("   ", "  X  "),
+                Collections.singletonList(null),
+                List.of()
+        );
+        for (List<String> c : cases) {
+            System.out.printf("normalizeNames(%s) = %s%n", c, task.normalizeNames(c));
         }
         System.out.println();
     }
