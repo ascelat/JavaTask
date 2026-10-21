@@ -2,12 +2,16 @@ package org.example;
 
 import java.util.List;
 
+import org.example.task2.Task2_dev;
 import org.example.tasks1.Task1_dev;
 
 public class Main {
     public static void main(String[] args) {
 
         //Test Task1
+        System.out.println();
+        System.out.println("Task2");
+        System.out.println();
 
         Task1_dev task1 = new Task1_dev();
         //isEven
@@ -44,5 +48,47 @@ public class Main {
         for (long i : arr){
             System.out.println(i);
         }
+
+
+        // Test Task2
+        System.out.println();
+        System.out.println("Task2");
+        System.out.println();
+
+        Task2_dev task2 = new Task2_dev();
+
+        //sumFromOneTo 
+        List<Long> arr2 = List.of(
+            task2.sumFromOneTo(15),
+            task2.sumFromOneTo(2),
+            task2.sumFromOneTo(53),
+            task2.sumFromOneTo(34)
+        );
+
+        for (long i : arr2){
+            System.out.println(i);
+        }
+
+        System.out.println();
+
+        //formatLine
+
+        task2.formatLine(3);
+        System.out.println();
+
+        // sumOfDigits
+
+        System.out.println(task2.sumOfDigits(123) + "\n");
+
+        //isPalindrome
+
+        System.out.println(task2.isPalindrome(11111) + "\n");
+        System.out.println(task2.isPalindrome(112311) + "\n");
+
+        //isPrime
+
+        System.out.println(task2.isPrime(7) + "\n");
+        System.out.println(task2.isPrime(12) + "\n");
+
     }
 }
