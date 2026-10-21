@@ -85,3 +85,5 @@ public interface Task1 {
      */
     long calculateFinalPrice(double basePrice, int age, boolean isStudent, int dayOfWeek);
 }
+
+
