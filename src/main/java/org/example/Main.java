@@ -1,8 +1,9 @@
 package org.example;
 
-import java.util.List;
+import java.util.*;
 
 import org.example.task2.Task2_dev;
+import org.example.task3.Task3_dev;
 import org.example.tasks1.Task1_dev;
 
 public class Main {
@@ -82,13 +83,51 @@ public class Main {
 
         //isPalindrome
 
-        System.out.println(task2.isPalindrome(11111) + "\n");
+        System.out.println(task2.isPalindrome(11111));
         System.out.println(task2.isPalindrome(112311) + "\n");
 
         //isPrime
 
-        System.out.println(task2.isPrime(7) + "\n");
+        System.out.println(task2.isPrime(7));
         System.out.println(task2.isPrime(12) + "\n");
 
+
+        //task3
+
+        Task3_dev task3 = new Task3_dev();
+
+        //removeDuplicates
+
+        System.out.println(task3.removeDuplicates(List.of(1,2,3,4,2,1,2,3,1,4,5,6,2,1)) + "\n");
+
+        // findIntersection
+
+        System.out.println(task3.findIntersection(List.of(1,2,3,6,7), List.of(8,9,4,5,6,7)) + "\n");
+
+        // countWords
+
+        System.out.println(task3.countWords(List.of("java", "python", "java", "c++", "java")) + "\n");
+
+        //groupByGrade
+
+        System.out.println(task3.groupByGrade(Map.of("Аня" , 5, "Боря", 4, "Вера", 5, "Гена", 3, "Дима", 4)) + "\n");
+
+        //findMostFrequent
+
+        System.out.println(task3.findMostFrequent(List.of(1,1,1,1,1,12,2,3,4,2,3,1)) + "\n");
+
+        //compareSets
+
+        System.out.println(task3.compareSets(Set.of("a","a","b","d"), Set.of("d","a","a","f","t"))+ "\n");
+
+        //sumOfLengths
+
+        System.out.println(task3.sumOfLengths(List.of("java", "is", "cool")) + "\n");
+
+        //normalizeNames
+
+        System.out.println(task3.normalizeNames(List.of(" аня ", "", null, "боря")) + "\n");
+
+        
     }
 }
