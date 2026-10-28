@@ -101,6 +101,11 @@ public class Task3_dev implements Task3{
         List <String> arr = new ArrayList<>();
 
         for (String i : names){
+            
+            if (i == null) {
+                continue;
+            }
+            
             arr.add(i.toUpperCase().trim());
         }
 
