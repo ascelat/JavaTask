@@ -13,55 +13,57 @@ import java.util.*;
  * ДАННОЕ ЗАДАНИЕ ДЕЛАТЬ МОЖНО ПОЖЕЛАНИЮ
  */
 public class Task4 {
-    public static List<String> p(List<String> l, int a) {
-        List<String> r = new ArrayList<>();
-        for (int i = 0; i < l.size(); i++) {
-            String s = l.get(i);
-            if (s != null) {
-                if (s.length() > a) {
-                    if (s.contains("a")) {
-                        r.add(s.toUpperCase());
-                    }
-                }
+    public static List<String> filterAndToUpperCase(List<String> words, int minLength) {
+        if (words == null || words.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<String> result = new ArrayList<>();
+        for (String word : words) {
+            if (word != null && word.length() > minLength && word.contains("a")) {
+                result.add(word.toUpperCase());
             }
         }
-        return r;
+        return result;
     }
 
-    public static int f(List<Integer> nums) {
+    public static int sumPositiveNumbers(List<Integer> numbers) {
+        if (numbers == null) {
+            return 0;
+        }
+
         int sum = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums.get(i) != null) {
-                if (nums.get(i) > 0) {
-                    sum = sum + nums.get(i);
-                }
+        for (Integer num : numbers) {
+            if (num != null && num > 0) {
+                sum += num;
             }
         }
         return sum;
     }
 
-    public static Map<String, Integer> m(List<String> words) {
-        Map<String, Integer> map = new HashMap<>();
-        for (String w : words) {
-            if (map.containsKey(w)) {
-                map.put(w, map.get(w) + 1);
-            } else {
-                map.put(w, 1);
+    public static Map<String, Integer> countWordFrequency(List<String> words) {
+        if (words == null || words.isEmpty()) {
+            return Collections.emptyMap();
+        }
+
+        Map<String, Integer> frequencyMap = new HashMap<>();
+        for (String word : words) {
+            if (word != null) {
+                frequencyMap.merge(word, 1, Integer::sum);
             }
         }
-        return map;
+        return frequencyMap;
     }
 
     public static void main(String[] args) {
-        List<String> test = Arrays.asList("apple", "banana", null, "avocado", "apricot", "x");
-        List<String> result = p(test, 5);
+        List<String> testStrings = Arrays.asList("apple", "banana", null, "avocado", "apricot", "x");
+        List<String> result = filterAndToUpperCase(testStrings, 5);
         System.out.println(result);
 
         List<Integer> nums = Arrays.asList(1, -2, 3, null, 4, -5);
-        System.out.println(f(nums));
+        System.out.println(sumPositiveNumbers(nums));
 
-        Map<String, Integer> freq = m(Arrays.asList("a", "b", "a", "c", "b", "a"));
+        Map<String, Integer> freq = countWordFrequency(Arrays.asList("a", "b", "a", "c", "b", "a"));
         System.out.println(freq);
     }
 }
-
